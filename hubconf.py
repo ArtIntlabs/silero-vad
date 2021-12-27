@@ -23,12 +23,5 @@ def silero_vad(**kwargs):
     """
     hub_dir = torch.hub.get_dir()
     model = init_jit_model(model_path=f'{hub_dir}/{CACHE_DIR}/files/model.jit')
-    utils = (get_speech_ts,
-             get_speech_ts_adaptive,
-             save_audio,
-             read_audio,
-             state_generator,
-             single_audio_stream,
-             collect_chunks)
-
+    utils = (get_speech_ts, save_audio, read_audio, collect_chunks)
     return model, utils
