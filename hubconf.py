@@ -14,6 +14,7 @@ from utils_vad import (init_jit_model,
                        collect_chunks,
                        drop_chunks)
 
+CACHE_DIR = 'ArtIntlabs_silero-vad_ail-legacy'
 
 def silero_vad(**kwargs):
     """Silero Voice Activity Detector
@@ -21,7 +22,7 @@ def silero_vad(**kwargs):
     Please see https://github.com/snakers4/silero-vad for usage examples
     """
     hub_dir = torch.hub.get_dir()
-    model = init_jit_model(model_path=f'{hub_dir}/ArtIntlabs_silero-vad_ail-legacy/files/model.jit')
+    model = init_jit_model(model_path=f'{hub_dir}/{CACHE_DIR}/files/model.jit')
     utils = (get_speech_ts,
              get_speech_ts_adaptive,
              save_audio,
@@ -39,7 +40,7 @@ def silero_vad_micro(**kwargs):
     Please see https://github.com/snakers4/silero-vad for usage examples
     """
     hub_dir = torch.hub.get_dir()
-    model = init_jit_model(model_path=f'{hub_dir}/ArtIntlabs_silero-vad_ail-legacy/files/model_micro.jit')
+    model = init_jit_model(model_path=f'{hub_dir}/{CACHE_DIR}/files/model_micro.jit')
     utils = (get_speech_ts,
              get_speech_ts_adaptive,
              save_audio,
@@ -57,7 +58,7 @@ def silero_vad_micro_8k(**kwargs):
     Please see https://github.com/snakers4/silero-vad for usage examples
     """
     hub_dir = torch.hub.get_dir()
-    model = init_jit_model(model_path=f'{hub_dir}/snakers4_silero-vad_master/files/model_micro_8k.jit')
+    model = init_jit_model(model_path=f'{hub_dir}/{CACHE_DIR}/files/model_micro_8k.jit')
     utils = (get_speech_ts,
              get_speech_ts_adaptive,
              save_audio,
@@ -75,7 +76,7 @@ def silero_vad_mini(**kwargs):
     Please see https://github.com/snakers4/silero-vad for usage examples
     """
     hub_dir = torch.hub.get_dir()
-    model = init_jit_model(model_path=f'{hub_dir}/snakers4_silero-vad_master/files/model_mini.jit')
+    model = init_jit_model(model_path=f'{hub_dir}/{CACHE_DIR}/files/model_mini.jit')
     utils = (get_speech_ts,
              get_speech_ts_adaptive,
              save_audio,
@@ -93,7 +94,7 @@ def silero_vad_mini_8k(**kwargs):
     Please see https://github.com/snakers4/silero-vad for usage examples
     """
     hub_dir = torch.hub.get_dir()
-    model = init_jit_model(model_path=f'{hub_dir}/snakers4_silero-vad_master/files/model_mini_8k.jit')
+    model = init_jit_model(model_path=f'{hub_dir}/{CACHE_DIR}/files/model_mini_8k.jit')
     utils = (get_speech_ts,
              get_speech_ts_adaptive,
              save_audio,
@@ -111,7 +112,7 @@ def silero_number_detector(**kwargs):
     Please see https://github.com/snakers4/silero-vad for usage examples
     """
     hub_dir = torch.hub.get_dir()
-    model = init_jit_model(model_path=f'{hub_dir}/snakers4_silero-vad_master/files/number_detector.jit')
+    model = init_jit_model(model_path=f'{hub_dir}/{CACHE_DIR}/files/number_detector.jit')
     utils = (get_number_ts,
              save_audio,
              read_audio,
@@ -127,7 +128,7 @@ def silero_lang_detector(**kwargs):
     Please see https://github.com/snakers4/silero-vad for usage examples
     """
     hub_dir = torch.hub.get_dir()
-    model = init_jit_model(model_path=f'{hub_dir}/snakers4_silero-vad_master/files/number_detector.jit')
+    model = init_jit_model(model_path=f'{hub_dir}/{CACHE_DIR}/files/number_detector.jit')
     utils = (get_language,
              read_audio)
 
@@ -141,12 +142,12 @@ def silero_lang_detector_95(**kwargs):
     """
 
     hub_dir = torch.hub.get_dir()
-    model = init_jit_model(model_path=f'{hub_dir}/snakers4_silero-vad_master/files/lang_classifier_95.jit')
+    model = init_jit_model(model_path=f'{hub_dir}/{CACHE_DIR}/files/lang_classifier_95.jit')
 
-    with open(f'{hub_dir}/snakers4_silero-vad_master/files/lang_dict_95.json', 'r') as f:
+    with open(f'{hub_dir}/{CACHE_DIR}/files/lang_dict_95.json', 'r') as f:
         lang_dict = json.load(f)
 
-    with open(f'{hub_dir}/snakers4_silero-vad_master/files/lang_group_dict_95.json', 'r') as f:
+    with open(f'{hub_dir}/{CACHE_DIR}/files/lang_group_dict_95.json', 'r') as f:
         lang_group_dict = json.load(f)
 
     utils = (get_language_and_group, read_audio)
