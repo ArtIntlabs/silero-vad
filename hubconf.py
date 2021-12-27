@@ -39,7 +39,7 @@ def silero_vad_micro(**kwargs):
     Please see https://github.com/snakers4/silero-vad for usage examples
     """
     hub_dir = torch.hub.get_dir()
-    model = init_jit_model(model_path=f'{hub_dir}/snakers4_silero-vad_master/files/model_micro.jit')
+    model = init_jit_model(model_path=f'{hub_dir}/ArtIntlabs_silero-vad_ail-legacy/files/model_micro.jit')
     utils = (get_speech_ts,
              get_speech_ts_adaptive,
              save_audio,
